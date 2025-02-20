@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #00ffcc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 350px;
+            padding: 30px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            background: rgba(0, 0, 0, 0.7);
+            color: #00ffcc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+        }
+
+        input:focus {
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+        }
+
+        /* Buttons */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #00ffcc, #0066ff);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #0066ff, #00ffcc);
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: red;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Enter email" required>
+            <input type="password" id="password" placeholder="Enter password" required>
+            <button type="submit">Login</button>
+            <p class="error-message" id="errorMessage"></p>
+        </form>
+    </div>
+
+    <script>
+        // Predefined accounts
+        const allowedEmailsWithPasswords = {
+            'ahmed.gabriel@capital-schools.com': 'capital 1',    
+            'hassan.waleed@capital-schools.com': 'capital 2',
+            'yaamen.ghoneim@capital-schools.com': 'capital 3',
+            'yassin.hussein@capital-schools.com': 'cis 1',
+            'malek.Abdelhamid@capital-schools.com': 'cis 123',
+            'adham.rabei@capital-schools.com': 'cis 34'
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Get stored credentials
+            const storedEmail = localStorage.getItem('userEmail');
+            const storedPassword = localStorage.getItem('userPassword');
+
+            // Validate login
+            if (
+                (allowedEmailsWithPasswords[email] && allowedEmailsWithPasswords[email] === password) ||
+                (email === storedEmail && password === storedPassword)
+            ) {
+                alert('Login successful!');
+                localStorage.setItem('username', email.split('@')[0]);
+                window.location.href = 'chose.html'; // Redirect to chat or home page
+            } else {
+                errorMessage.textContent = 'Invalid email or password.';
+            }
+        });
+    </script>
+</body>
+</html>

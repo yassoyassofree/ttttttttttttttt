@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .game-button {
+            background-color: #4CAF50;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .game-button:hover {
+            background-color: #45a049;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .game-button img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .game-button span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .game-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .game-button img {
+                max-width: 40px;
+                max-height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Hub</h1>
+    <div class="button-container">
+        <button class="game-button" onclick="window.open('https://en.gameslol.net/adventure-capitalist-1086.html')">
+            <img src="clicker games.jpg" alt="Game 1">
+            <span>Adventure Capitalist</span>
+        </button>
+        <button class="game-button" onclick="window.open('https://www.cbc.ca/kids/games/all/park-your-car')">
+            <img src="WhatsApp Image 2025-02-20 at 20.29.40_9ecbc3f6.jpg" alt="Game 2">
+            <span>Park Your Car</span>
+        </button>
+        <button class="game-button" onclick="window.open('https://bitlifemod.org/')">
+            <img src="bit life.jpg" alt="BitLife">
+            <span>BitLife</span>
+        </button>
+        <button class="game-button" onclick="window.open('https://deadshot.io/')">
+            <img src="cover_16x9-1694770506842 .jpg" alt="deadshot">
+            <span>Adventure Capitalist</span>
+        </button>
+        <button class="game-button" onclick="window.open('https://escaperoad2.io/')">
+            <img src="escape-road-2-3.png" alt="escape raod 2">
+            <span>Park Your Car</span>
+        </button>
+        <button class="game-button" onclick="window.open('https://slope2.online/escape-road#google_vignette')">
+            <img src="images.png" alt="escape road city">
+            <span>BitLife</span>
+        </button>
+    </div>
+</body>
+</html>
